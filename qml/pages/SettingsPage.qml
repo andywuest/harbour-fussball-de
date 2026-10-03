@@ -24,8 +24,8 @@ Page {
                 id: competitionIdField
                 width: parent.width
                 label: qsTr("Competition ID")
-                placeholderText: qsTr("e.g. 125123")
                 text: settings.competitionId
+                description: qsTr("Please provide the competition ID extracted from the website that includes the widget.")
                 EnterKey.iconSource: "image://theme/icon-m-enter-accept"
                 EnterKey.onClicked: focus = false
             }

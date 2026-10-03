@@ -46,6 +46,16 @@
         <extracomment>AboutPage - Name</extracomment>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Third party components</source>
+        <extracomment>AboutPage - third party components</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This app bundles Opal.Tabs 2.1.1, which is licensed under the GNU GPL v3 or later. Copyright: 2024-2025 Mirian Margiani, 2025 roundedrectangle, 2013-2020 Jolla Ltd, 2020 Open Mobile Platform LLC.</source>
+        <extracomment>AboutPage - Opal.Tabs attribution</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>CoverPage</name>
@@ -88,6 +98,10 @@
         <extracomment>OverviewPage about menu item</extracomment>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Match day and table</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SettingsPage</name>
@@ -116,6 +130,33 @@
     </message>
     <message>
         <source>Next match day</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>TabsPage</name>
+    <message>
+        <source>Spieltag</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>About</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Previous match day</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Next match day</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Tabelle</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -58,3 +58,5 @@ statistics and the points.
 The teams logos shall also be stored in the local file system in the logoDir. Basically the same logic shall be applied
 as for the fontDir (reload only, if it has not yet been loaded). In the QML Page the downloaded logos shall be used
 from the filesystem and not the original URL from the json data, to prevent unnecessary network traffic.
+
+Add a new to the project that makes use of the Opal Tabs which can be found here: https://codeberg.org/opal-sfos/opal-tabs

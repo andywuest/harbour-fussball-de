@@ -30,17 +30,31 @@ DEFINES += VERSION_NUMBER=\\\"$$(VERSION_NUMBER)\\\"
 
 LIBS += -lz
 
+# Opal QML modules (bundled in qml/modules, see libs/module_opal-tabs.txt)
+include(libs/opal.pri)
+
 DISTFILES += qml/harbour-fussball-de.qml \
     qml/cover/CoverPage.qml \
     qml/pages/AboutPage.qml \
     qml/pages/OverviewPage.qml \
     qml/pages/SettingsPage.qml \
     qml/pages/TablePage.qml \
+    qml/pages/TabsPage.qml \
     qml/components/thirdparty/AboutDescription.qml \
     qml/components/thirdparty/AboutIconLabel.qml \
-    qml/components/thirdparty/LoadingINdicator.qml \
+    qml/components/thirdparty/LoadingIndicator.qml \
     qml/components/GameResultListItem.qml \
     qml/components/TableListItem.qml \
+    qml/modules/Opal/Tabs/qmldir \
+    qml/modules/Opal/Tabs/SILICA-LICENSE \
+    qml/modules/Opal/Tabs/Tab.qml \
+    qml/modules/Opal/Tabs/TabItem.qml \
+    qml/modules/Opal/Tabs/TabView.qml \
+    qml/modules/Opal/Tabs/private/qmldir \
+    qml/modules/Opal/Tabs/private/ColorInterpolator.qml \
+    qml/modules/Opal/Tabs/private/TabBar.qml \
+    qml/modules/Opal/Tabs/private/TabButton.qml \
+    qml/modules/Opal/Tabs/private/Util.js \
     rpm/harbour-fussball-de.changes.in \
     rpm/harbour-fussball-de.changes.run.in \
     rpm/harbour-fussball-de.spec \

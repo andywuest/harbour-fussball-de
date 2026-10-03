@@ -49,6 +49,9 @@ int main(int argc, char *argv[])
 
     QScopedPointer<QQuickView> view(SailfishApp::createView());
 
+    // add module search path so Opal modules can be found
+    view->engine()->addImportPath(SailfishApp::pathTo("qml/modules").toString());
+
     QQmlContext *context = view.data()->rootContext();
     FussballBackend fussballBackend(fontDir.path(), logoDir.path());
     context->setContextProperty("fussballBackend", &fussballBackend);

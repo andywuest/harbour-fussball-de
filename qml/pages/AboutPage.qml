@@ -101,6 +101,24 @@ Page {
                 targetUrl: "https://github.com/andywuest/harbour-fussball-de"
             }
 
+            SectionHeader {
+                //: AboutPage - third party components
+                text: qsTr("Third party components")
+            }
+
+            AboutDescription {
+                //: AboutPage - Opal.Tabs attribution
+                description: qsTr("This app bundles Opal.Tabs 2.1.1, which is licensed under the GNU GPL v3 or later. "
+                                  + "Copyright: 2024-2025 Mirian Margiani, 2025 roundedrectangle, "
+                                  + "2013-2020 Jolla Ltd, 2020 Open Mobile Platform LLC.")
+            }
+
+            AboutIconLabel {
+                iconSource: "icons/github.svg"
+                label: "https://codeberg.org/opal-sfos/opal-tabs"
+                targetUrl: "https://codeberg.org/opal-sfos/opal-tabs"
+            }
+
             SectionHeader{
                 //: AboutPage - Donations
                 text: qsTr("Donations")

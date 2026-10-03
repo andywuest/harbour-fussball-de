@@ -122,6 +122,10 @@ Page {
                 onClicked: pageStack.animatorPush(Qt.resolvedUrl("TablePage.qml"))
             }
             MenuItem {
+                text: qsTr("Match day and table")
+                onClicked: pageStack.animatorPush(Qt.resolvedUrl("TabsPage.qml"))
+            }
+            MenuItem {
                 visible: page.currentMatchDay > 0
                 text: qsTr("Previous match day")
                 onClicked: page.loadMatchDay(page.currentMatchDay - 1)

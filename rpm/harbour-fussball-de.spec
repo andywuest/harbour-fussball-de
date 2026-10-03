@@ -1,7 +1,11 @@
+# >> macros
+%define __provides_exclude_from ^%{_datadir}/.*$
+# << macros
+
 Name:       harbour-fussball-de
 
 Summary:    My Sailfish OS Application
-Version:    0.0.3
+Version:    0.0.4
 Release:    1
 License:    LICENSE
 URL:        http://example.org/

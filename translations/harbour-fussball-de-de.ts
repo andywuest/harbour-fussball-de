@@ -60,8 +60,8 @@
 <context>
     <name>CoverPage</name>
     <message>
-        <source>My Cover</source>
-        <translation>Mein Cover</translation>
+        <source>No results</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -114,7 +114,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>e.g. 125123</source>
+        <source>Please provide the competition ID extracted from the website that includes the widget.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -157,6 +157,10 @@
     </message>
     <message>
         <source>Tabelle</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1. Spieltag</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

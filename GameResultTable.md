@@ -60,3 +60,8 @@ as for the fontDir (reload only, if it has not yet been loaded). In the QML Page
 from the filesystem and not the original URL from the json data, to prevent unnecessary network traffic.
 
 Add a new to the project that makes use of the Opal Tabs which can be found here: https://codeberg.org/opal-sfos/opal-tabs
+
+Update the CoverPage.qml to use the Connections object to receive the game data as the TabsPage. The CoverPage displays
+one result at a time for the matches received via the Connections definition. It shall be possible to skip to the next and
+the previous match result (round robbing, so there is no start and end). For the game result the name of the teams
+and the logos are to be used again. 

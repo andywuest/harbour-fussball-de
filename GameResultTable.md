@@ -14,10 +14,14 @@ the component.
 
 Put the components to the components directory.
 
-Add a Settings page, that lets the user allow to configure a competition id (String). The input field is to be labeled properly.
-The settings page can be reached via the pully menu from the Overview Page.
-User Nemo.Configuration to store the compeition id using a ConfigurationGroup in the ApplicationWindow.
-When the SettingsPage is left, do persist the configured compeition id.
+Add a Settings page, that lets the user allow to configure a variable number of competition ids (String) with a description. 
+So there is an input field for the description and an input field for the compeition id. There is also an "add" button
+that will add the entered competition id / description to a list. The list of added competition id / descriptions are displayed
+below the input fields on the same settings page. The settings page can be reached via the pully menu from the Overview Page.
+Use Nemo.Configuration to store the compeition ids / descriptions using a ConfigurationGroup in the ApplicationWindow.
+When the SettingsPage is left, do persist the configured compeition id. The the settings page is entered the input fields
+for the competition id / description is empty. Only the previously saved list is displayed below the input fields.
+For each entry in the list there should be the option to remove the entry again, using a pull down menu.
 
 Use mock data for 10 made up matches, which are then displayed in the page. Do not use a List model with ListElement, but
 create a javascript model. Do use a SilicaListView with delegate ListItem instead of a Repeater.

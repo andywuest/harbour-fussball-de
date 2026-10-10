@@ -107,6 +107,15 @@
     <name>SettingsPage</name>
     <message>
         <source>Settings</source>
+        <extracomment>SettingsPage settings title</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Description</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Optional description of the competition</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -115,6 +124,14 @@
     </message>
     <message>
         <source>Please provide the competition ID extracted from the website that includes the widget.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

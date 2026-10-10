@@ -29,8 +29,9 @@ ApplicationWindow {
         id: settings
         path: "/apps/harbour-fussball-de/settings"
 
-        property string competitionId: "ac5e71aa-1ee8-4579-9508-1a2f27fe240d"
-        // ksc a30ddeb2-06b1-4041-b2c9-10d53f77b48c
+        // JSON encoded list of configured competitions, each entry holds a
+        // description and a competition id, e.g. [{"description":"...","competitionId":"..."}]
+        property string competitionsString: "[]"
         property int currentMatchDay: 0
     }
 }

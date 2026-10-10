@@ -64,4 +64,6 @@ Add a new to the project that makes use of the Opal Tabs which can be found here
 Update the CoverPage.qml to use the Connections object to receive the game data as the TabsPage. The CoverPage displays
 one result at a time for the matches received via the Connections definition. It shall be possible to skip to the next and
 the previous match result (round robbing, so there is no start and end). For the game result the name of the teams
-and the logos are to be used again. 
+and the logos are to be used again. Do not use a horizontal layout to display the result, but use a vertical layout, because
+of the very limited width of the cover page. Write the result in the center component of the vertical layout. Place the home
+teams to the top and the away team at the bottom of the vertical layout.

@@ -123,117 +123,110 @@ CoverBackground {
             truncationMode: TruncationMode.Elide
         }
 
-        Item {
+        Column {
+            id: homeColumn
             width: parent.width
-            height: Math.max(homeColumn.height, awayColumn.height)
+            spacing: Theme.paddingSmall
 
-            Column {
-                id: homeColumn
-                width: parent.width / 2
-                anchors.left: parent.left
-                anchors.verticalCenter: parent.verticalCenter
-                spacing: Theme.paddingSmall
+            Item {
+                anchors.horizontalCenter: parent.horizontalCenter
+                width: Theme.iconSizeMedium
+                height: width
 
-                Item {
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    width: Theme.iconSizeMedium
-                    height: width
+                Rectangle {
+                    anchors.fill: parent
+                    radius: width / 2
+                    color: cover.currentMatch ? cover.currentMatch.homeTeamLogoColor : Theme.highlightColor
+                    visible: !cover.currentMatch || cover.currentMatch.homeTeamLogoUrl.length === 0
 
-                    Rectangle {
-                        anchors.fill: parent
-                        radius: width / 2
-                        color: cover.currentMatch ? cover.currentMatch.homeTeamLogoColor : Theme.highlightColor
-                        visible: !cover.currentMatch || cover.currentMatch.homeTeamLogoUrl.length === 0
-
-                        Label {
-                            anchors.centerIn: parent
-                            text: cover.currentMatch ? cover.currentMatch.homeTeamLogo : ""
-                            color: Theme.primaryColor
-                            font.pixelSize: Theme.fontSizeSmall
-                            font.bold: true
-                        }
-                    }
-
-                    Image {
-                        anchors.fill: parent
-                        source: cover.currentMatch ? cover.currentMatch.homeTeamLogoUrl : ""
-                        visible: cover.currentMatch && cover.currentMatch.homeTeamLogoUrl.length > 0
-                        fillMode: Image.PreserveAspectFit
-                        sourceSize.width: width
-                        sourceSize.height: height
+                    Label {
+                        anchors.centerIn: parent
+                        text: cover.currentMatch ? cover.currentMatch.homeTeamLogo : ""
+                        color: Theme.primaryColor
+                        font.pixelSize: Theme.fontSizeSmall
+                        font.bold: true
                     }
                 }
 
-                Label {
-                    width: parent.width
-                    horizontalAlignment: Text.AlignHCenter
-                    text: cover.currentMatch ? cover.currentMatch.homeTeamName : ""
-                    maximumLineCount: 1
-                    truncationMode: TruncationMode.Elide
-                    font.pixelSize: Theme.fontSizeSmall
-                }
-            }
-
-            Column {
-                id: awayColumn
-                width: parent.width / 2
-                anchors.right: parent.right
-                anchors.verticalCenter: parent.verticalCenter
-                spacing: Theme.paddingSmall
-
-                Item {
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    width: Theme.iconSizeMedium
-                    height: width
-
-                    Rectangle {
-                        anchors.fill: parent
-                        radius: width / 2
-                        color: cover.currentMatch ? cover.currentMatch.awayTeamLogoColor : Theme.highlightColor
-                        visible: !cover.currentMatch || cover.currentMatch.awayTeamLogoUrl.length === 0
-
-                        Label {
-                            anchors.centerIn: parent
-                            text: cover.currentMatch ? cover.currentMatch.awayTeamLogo : ""
-                            color: Theme.primaryColor
-                            font.pixelSize: Theme.fontSizeSmall
-                            font.bold: true
-                        }
-                    }
-
-                    Image {
-                        anchors.fill: parent
-                        source: cover.currentMatch ? cover.currentMatch.awayTeamLogoUrl : ""
-                        visible: cover.currentMatch && cover.currentMatch.awayTeamLogoUrl.length > 0
-                        fillMode: Image.PreserveAspectFit
-                        sourceSize.width: width
-                        sourceSize.height: height
-                    }
-                }
-
-                Label {
-                    width: parent.width
-                    horizontalAlignment: Text.AlignHCenter
-                    text: cover.currentMatch ? cover.currentMatch.awayTeamName : ""
-                    maximumLineCount: 1
-                    truncationMode: TruncationMode.Elide
-                    font.pixelSize: Theme.fontSizeSmall
+                Image {
+                    anchors.fill: parent
+                    source: cover.currentMatch ? cover.currentMatch.homeTeamLogoUrl : ""
+                    visible: cover.currentMatch && cover.currentMatch.homeTeamLogoUrl.length > 0
+                    fillMode: Image.PreserveAspectFit
+                    sourceSize.width: width
+                    sourceSize.height: height
                 }
             }
 
             Label {
-                anchors.centerIn: parent
-                text: cover.currentMatch ? cover.currentMatch.homeGoals + " : " + cover.currentMatch.awayGoals : ""
-                font.pixelSize: Theme.fontSizeLarge
-                font.bold: true
-                color: Theme.highlightFromColor(Theme.primaryColor, 0.15)
+                width: parent.width
+                horizontalAlignment: Text.AlignHCenter
+                text: cover.currentMatch ? cover.currentMatch.homeTeamName : ""
+                maximumLineCount: 1
+                truncationMode: TruncationMode.Elide
+                font.pixelSize: Theme.fontSizeSmall
+            }
+        }
+
+        Label {
+            id: scoreLabel
+            width: parent.width
+            horizontalAlignment: Text.AlignHCenter
+            text: cover.currentMatch ? cover.currentMatch.homeGoals + " : " + cover.currentMatch.awayGoals : ""
+            font.pixelSize: Theme.fontSizeLarge
+            font.bold: true
+            color: Theme.highlightFromColor(Theme.primaryColor, 0.15)
+        }
+
+        Column {
+            id: awayColumn
+            width: parent.width
+            spacing: Theme.paddingSmall
+
+            Item {
+                anchors.horizontalCenter: parent.horizontalCenter
+                width: Theme.iconSizeMedium
+                height: width
+
+                Rectangle {
+                    anchors.fill: parent
+                    radius: width / 2
+                    color: cover.currentMatch ? cover.currentMatch.awayTeamLogoColor : Theme.highlightColor
+                    visible: !cover.currentMatch || cover.currentMatch.awayTeamLogoUrl.length === 0
+
+                    Label {
+                        anchors.centerIn: parent
+                        text: cover.currentMatch ? cover.currentMatch.awayTeamLogo : ""
+                        color: Theme.primaryColor
+                        font.pixelSize: Theme.fontSizeSmall
+                        font.bold: true
+                    }
+                }
+
+                Image {
+                    anchors.fill: parent
+                    source: cover.currentMatch ? cover.currentMatch.awayTeamLogoUrl : ""
+                    visible: cover.currentMatch && cover.currentMatch.awayTeamLogoUrl.length > 0
+                    fillMode: Image.PreserveAspectFit
+                    sourceSize.width: width
+                    sourceSize.height: height
+                }
+            }
+
+            Label {
+                width: parent.width
+                horizontalAlignment: Text.AlignHCenter
+                text: cover.currentMatch ? cover.currentMatch.awayTeamName : ""
+                maximumLineCount: 1
+                truncationMode: TruncationMode.Elide
+                font.pixelSize: Theme.fontSizeSmall
             }
         }
     }
 
     Label {
         anchors.centerIn: parent
-        // visible: cover.currentMatch === null
+        visible: cover.currentMatch === null
         text: qsTr("No results")
         color: Theme.secondaryColor
         font.pixelSize: Theme.fontSizeSmall

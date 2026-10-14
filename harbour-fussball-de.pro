@@ -36,6 +36,7 @@ include(libs/opal.pri)
 DISTFILES += qml/harbour-fussball-de.qml \
     qml/cover/CoverPage.qml \
     qml/pages/AboutPage.qml \
+    qml/pages/CompetitionPage.qml \
     qml/pages/OverviewPage.qml \
     qml/pages/SettingsPage.qml \
     qml/pages/TablePage.qml \

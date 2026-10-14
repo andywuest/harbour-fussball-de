@@ -23,7 +23,7 @@ public:
     int matchDay() const { return m_matchDay; }
     const QJsonArray &matches() const { return m_matches; }
 
-    Q_INVOKABLE void getMatchDay(int matchDay);
+    Q_INVOKABLE void getMatchDay(const QString &competitionId, int matchDay);
 
     // Returns the local file url of an already downloaded logo, empty if the logo is not available yet.
     Q_INVOKABLE QString cachedLogoUrl(const QString &logoUrl) const;
@@ -49,6 +49,7 @@ private:
     QString m_fontDir;
     QString m_logoDir;
     QSet<QString> m_pendingLogos;
+    QString m_competitionId;
     int m_matchDay = 0;
     QJsonArray m_matches;
     QJsonObject m_jsonDoc;

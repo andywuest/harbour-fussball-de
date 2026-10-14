@@ -58,6 +58,14 @@
     </message>
 </context>
 <context>
+    <name>CompetitionPage</name>
+    <message>
+        <source>Competition</source>
+        <extracomment>CompetitionPage page title</extracomment>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>CoverPage</name>
     <message>
         <source>No results</source>
@@ -111,11 +119,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Description</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Optional description of the competition</source>
+        <source>Description of the competition</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -132,6 +136,10 @@
     </message>
     <message>
         <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Competition description</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -162,6 +170,10 @@
     </message>
     <message>
         <source>Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Competition</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

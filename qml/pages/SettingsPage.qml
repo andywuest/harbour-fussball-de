@@ -47,14 +47,14 @@ Page {
     }
 
     function addCompetition() {
+        var description = descriptionField.text.trim()
         var competitionId = competitionIdField.text.trim()
-        if (competitionId.length === 0) {
+        if (description.length === 0 || competitionId.length === 0) {
             return
         }
 
         competitionsModel.append({
-                                     "description": descriptionField.text.trim(
-                                                        ),
+                                     "description": description,
                                      "competitionId": competitionId
                                  })
 
@@ -106,7 +106,7 @@ Page {
                 id: descriptionField
                 width: parent.width
                 label: qsTr("Competition description")
-                placeholderText: qsTr("Optional description of the competition")
+                placeholderText: qsTr("Description of the competition")
                 EnterKey.iconSource: "image://theme/icon-m-enter-next"
                 EnterKey.onClicked: competitionIdField.focus = true
             }
@@ -124,7 +124,8 @@ Page {
                 id: addButton
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: qsTr("Add")
-                enabled: competitionIdField.text.trim().length > 0
+                enabled: descriptionField.text.trim().length > 0
+                         && competitionIdField.text.trim().length > 0
                 onClicked: settingsPage.addCompetition()
             }
 

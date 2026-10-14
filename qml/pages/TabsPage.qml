@@ -31,6 +31,34 @@ Page {
     property int currentMatchDay: settings.currentMatchDay
     property int maxMatchDay: 0
     property bool loaded: false
+    property string currentCompetitionId: settings.currentCompetitionId
+    // The competition whose data is currently displayed.
+    property string loadedCompetitionId: ""
+    property var competitions: []
+
+    function loadCompetitions() {
+        var list = []
+        try {
+            list = JSON.parse(settings.competitionsString)
+        } catch (e) {
+            list = []
+        }
+        if (!(list instanceof Array)) {
+            list = []
+        }
+        competitions = list
+
+        // Fall back to the first configured competition if the stored one is gone.
+        var known = false
+        for (var i = 0; i < competitions.length; ++i) {
+            if (competitions[i].competitionId === settings.currentCompetitionId)
+                known = true
+        }
+        if (!known && competitions.length > 0) {
+            settings.currentCompetitionId = competitions[0].competitionId
+            settings.sync()
+        }
+    }
 
     // The models are defined here, so that they can be filled by the functions below.
     ListModel {
@@ -44,9 +72,10 @@ Page {
     function loadMatchDay(matchDayIndex) {
         loaded = false
         page.currentMatchDay = matchDayIndex
+        page.loadedCompetitionId = page.currentCompetitionId
         settings.currentMatchDay = matchDayIndex
         settings.sync()
-        fussballBackend.getMatchDay(matchDayIndex + 1)
+        fussballBackend.getMatchDay(page.currentCompetitionId, matchDayIndex + 1)
     }
 
     function logoColor(name) {
@@ -184,6 +213,11 @@ Page {
                                 onClicked: pageStack.animatorPush(Qt.resolvedUrl("SettingsPage.qml"))
                             }
                             MenuItem {
+                                visible: page.competitions.length > 1
+                                text: qsTr("Competition")
+                                onClicked: pageStack.animatorPush(Qt.resolvedUrl("CompetitionPage.qml"))
+                            }
+                            MenuItem {
                                 visible: page.currentMatchDay > 0
                                 text: qsTr("Previous match day")
                                 onClicked: page.loadMatchDay(page.currentMatchDay - 1)
@@ -255,6 +289,11 @@ Page {
                                 onClicked: pageStack.animatorPush(Qt.resolvedUrl("SettingsPage.qml"))
                             }
                             MenuItem {
+                                visible: page.competitions.length > 1
+                                text: qsTr("Competition")
+                                onClicked: pageStack.animatorPush(Qt.resolvedUrl("CompetitionPage.qml"))
+                            }
+                            MenuItem {
                                 visible: page.currentMatchDay > 0
                                 text: qsTr("Previous match day")
                                 onClicked: page.loadMatchDay(page.currentMatchDay - 1)
@@ -312,6 +351,17 @@ Page {
     }
 
     Component.onCompleted: {
+        page.loadCompetitions()
         page.loadMatchDay(settings.currentMatchDay)
+    }
+
+    onStatusChanged: {
+        if (status === PageStatus.Activating) {
+            page.loadCompetitions()
+            // Reload if the selected competition changed (or was removed) in the meantime.
+            if (page.loadedCompetitionId.length > 0
+                    && page.currentCompetitionId !== page.loadedCompetitionId)
+                page.loadMatchDay(0)
+        }
     }
 }

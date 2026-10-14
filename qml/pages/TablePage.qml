@@ -16,7 +16,7 @@ Page {
         page.currentMatchDay = matchDayIndex
         settings.currentMatchDay = matchDayIndex
         settings.sync()
-        fussballBackend.getMatchDay(matchDayIndex + 1)
+        fussballBackend.getMatchDay(settings.currentCompetitionId, matchDayIndex + 1)
     }
 
     function logoColor(name) {

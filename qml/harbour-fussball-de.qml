@@ -32,6 +32,8 @@ ApplicationWindow {
         // JSON encoded list of configured competitions, each entry holds a
         // description and a competition id, e.g. [{"description":"...","competitionId":"..."}]
         property string competitionsString: "[]"
+        // Id of the competition that is currently displayed.
+        property string currentCompetitionId: "ac5e71aa-1ee8-4579-9508-1a2f27fe240d"
         property int currentMatchDay: 0
     }
 }

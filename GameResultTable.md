@@ -71,3 +71,11 @@ the previous match result (round robbing, so there is no start and end). For the
 and the logos are to be used again. Do not use a horizontal layout to display the result, but use a vertical layout, because
 of the very limited width of the cover page. Write the result in the center component of the vertical layout. Place the home
 teams to the top and the away team at the bottom of the vertical layout.
+
+The description for the input field is also mandatory.
+
+The TabsPage.qml has an additional Pully Menu that allows the user to select the current competition, so it is possible to 
+switch between the configured competitions. The pully menu entry for select competition id shall open a new page where
+the user can select the competition id from the list of competitions. The pully is only to be displayed if there is more
+than one competition defined.
+The selected competition also has to be stored in the ConfigurationGroup of the ApplicationWindow. 

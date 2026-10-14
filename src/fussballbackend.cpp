@@ -48,8 +48,10 @@ FussballBackend::FussballBackend(const QString &fontDir, const QString &logoDir,
 {
 }
 
-void FussballBackend::getMatchDay(int matchDay)
+void FussballBackend::getMatchDay(const QString &competitionId, int matchDay)
 {
+    m_competitionId = competitionId.isEmpty() ? QString::fromLatin1(DefaultCompetitionId)
+                                              : competitionId;
     m_matchDay = matchDay;
     emit matchDayChanged(matchDay);
     fetchJson(matchDay);
@@ -57,7 +59,7 @@ void FussballBackend::getMatchDay(int matchDay)
 
 void FussballBackend::fetchJson(int matchDay)
 {
-    QNetworkRequest request(QUrl(gameResultsEndpoint(matchDay)));
+    QNetworkRequest request(QUrl(gameResultsEndpoint(m_competitionId, matchDay)));
     // request.setTransferTimeout(30000);
 
     QNetworkReply *reply = m_network.get(request);

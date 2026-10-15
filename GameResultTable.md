@@ -79,3 +79,7 @@ switch between the configured competitions. The pully menu entry for select comp
 the user can select the competition id from the list of competitions. The pully is only to be displayed if there is more
 than one competition defined.
 The selected competition also has to be stored in the ConfigurationGroup of the ApplicationWindow. 
+
+The currentMatchDay, that is stored in the configuration has to be stored per competition, not globally. When changing
+the competition the currentMatchDay has to be stored for the old competition and the match day for the new competition has to
+be loaded from the configuration and has to be used to display the proper match day. 

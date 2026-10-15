@@ -5,7 +5,7 @@
 Name:       harbour-fussball-de
 
 Summary:    My Sailfish OS Application
-Version:    0.0.5
+Version:    0.0.6
 Release:    1
 License:    LICENSE
 URL:        http://example.org/

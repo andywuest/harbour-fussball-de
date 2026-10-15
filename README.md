@@ -3,7 +3,7 @@
 A Sailfish OS client for the [fussball.de](https://www.fussball.de) widget. It
 fetches match results and league tables for one or more configurable
 competitions and displays them natively on your phone.
-The application has been develop with the help of AI (opencode with the Big Pickle model)
+The application has been develop with the help of AI (opencode with the Big Pickle model).
 
 ## Features
 

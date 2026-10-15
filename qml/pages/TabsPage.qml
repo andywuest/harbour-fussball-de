@@ -28,7 +28,7 @@ Page {
     allowedOrientations: Orientation.All
 
     property string competitionName
-    property int currentMatchDay: settings.currentMatchDay
+    property int currentMatchDay: 0
     property int maxMatchDay: 0
     property bool loaded: false
     property string currentCompetitionId: settings.currentCompetitionId
@@ -73,8 +73,7 @@ Page {
         loaded = false
         page.currentMatchDay = matchDayIndex
         page.loadedCompetitionId = page.currentCompetitionId
-        settings.currentMatchDay = matchDayIndex
-        settings.sync()
+        settings.storeMatchDay(page.currentCompetitionId, matchDayIndex)
         fussballBackend.getMatchDay(page.currentCompetitionId, matchDayIndex + 1)
     }
 
@@ -352,7 +351,7 @@ Page {
 
     Component.onCompleted: {
         page.loadCompetitions()
-        page.loadMatchDay(settings.currentMatchDay)
+        page.loadMatchDay(settings.storedMatchDay(settings.currentCompetitionId))
     }
 
     onStatusChanged: {
@@ -360,8 +359,18 @@ Page {
             page.loadCompetitions()
             // Reload if the selected competition changed (or was removed) in the meantime.
             if (page.loadedCompetitionId.length > 0
-                    && page.currentCompetitionId !== page.loadedCompetitionId)
-                page.loadMatchDay(0)
+                    && page.currentCompetitionId !== page.loadedCompetitionId) {
+                // Keep the match day of the old competition (if it is still
+                // configured), then restore the stored match day of the newly
+                // selected competition.
+                for (var i = 0; i < page.competitions.length; ++i) {
+                    if (page.competitions[i].competitionId === page.loadedCompetitionId) {
+                        settings.storeMatchDay(page.loadedCompetitionId, page.currentMatchDay)
+                        break
+                    }
+                }
+                page.loadMatchDay(settings.storedMatchDay(page.currentCompetitionId))
+            }
         }
     }
 }

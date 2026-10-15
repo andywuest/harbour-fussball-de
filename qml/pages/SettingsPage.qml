@@ -72,14 +72,18 @@ Page {
 
     function saveCompetitions() {
         var competitions = []
+        var competitionIds = []
         for (var i = 0; i < competitionsModel.count; i++) {
             var entry = competitionsModel.get(i)
             competitions.push({
                                   "description": entry.description,
                                   "competitionId": entry.competitionId
                               })
+            competitionIds.push(entry.competitionId)
         }
         settings.competitionsString = JSON.stringify(competitions)
+        // Drop the stored match days of competitions that are no longer configured.
+        settings.removeStoredMatchDays(competitionIds)
         settings.sync()
     }
 

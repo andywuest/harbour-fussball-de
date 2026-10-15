@@ -34,6 +34,51 @@ ApplicationWindow {
         property string competitionsString: "[]"
         // Id of the competition that is currently displayed.
         property string currentCompetitionId: "ac5e71aa-1ee8-4579-9508-1a2f27fe240d"
-        property int currentMatchDay: 0
+        // JSON encoded map of the currently selected match day per competition,
+        // e.g. {"<competitionId>":2} (match day index starts with 0).
+        property string matchDaysString: "{}"
+
+        function matchDays() {
+            var days = {}
+            try {
+                days = JSON.parse(matchDaysString)
+            } catch (e) {
+                days = {}
+            }
+            if (!days || typeof days !== "object") {
+                days = {}
+            }
+            return days
+        }
+
+        function storedMatchDay(competitionId) {
+            var day = matchDays()[competitionId]
+            return typeof day === "number" && day >= 0 ? day : 0
+        }
+
+        function storeMatchDay(competitionId, matchDayIndex) {
+            if (competitionId.length === 0) {
+                return
+            }
+            var days = matchDays()
+            days[competitionId] = matchDayIndex
+            matchDaysString = JSON.stringify(days)
+            sync()
+        }
+
+        function removeStoredMatchDays(competitionIds) {
+            var days = matchDays()
+            var changed = false
+            for (var id in days) {
+                if (competitionIds.indexOf(id) === -1) {
+                    delete days[id]
+                    changed = true
+                }
+            }
+            if (changed) {
+                matchDaysString = JSON.stringify(days)
+                sync()
+            }
+        }
     }
 }

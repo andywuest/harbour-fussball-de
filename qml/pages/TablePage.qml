@@ -9,13 +9,12 @@ Page {
     allowedOrientations: Orientation.All
 
     property string competitionName
-    property int currentMatchDay: settings.currentMatchDay
+    property int currentMatchDay: 0
     property int maxMatchDay: 0
 
     function loadMatchDay(matchDayIndex) {
         page.currentMatchDay = matchDayIndex
-        settings.currentMatchDay = matchDayIndex
-        settings.sync()
+        settings.storeMatchDay(settings.currentCompetitionId, matchDayIndex)
         fussballBackend.getMatchDay(settings.currentCompetitionId, matchDayIndex + 1)
     }
 
@@ -83,7 +82,7 @@ Page {
     }
 
     Component.onCompleted: {
-        page.loadMatchDay(settings.currentMatchDay)
+        page.loadMatchDay(settings.storedMatchDay(settings.currentCompetitionId))
     }
 
     SilicaListView {
